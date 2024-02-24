@@ -1,5 +1,7 @@
 package com.mgmetehan.sisterslabildemo.controller;
 
+import com.mgmetehan.sisterslabildemo.dto.request.CityRequestDto;
+import com.mgmetehan.sisterslabildemo.dto.response.CityResponseDto;
 import com.mgmetehan.sisterslabildemo.model.City;
 import com.mgmetehan.sisterslabildemo.service.CityService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +24,7 @@ public class CityController {
     private final CityService cityService;
 
     @PostMapping
-    public City createCity(@RequestBody City newCity){
+    public CityResponseDto createCity(@RequestBody CityRequestDto newCity){
         return cityService.createCity(newCity);
     }
 
@@ -45,5 +47,4 @@ public class CityController {
     public City updateCity(@PathVariable Long id,@RequestBody City newCity){
         return cityService.updateCity(id,newCity);
     }
-
 }
